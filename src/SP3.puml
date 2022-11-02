@@ -1,0 +1,67 @@
+@startuml
+'https://plantuml.com/class-diagram
+!pragma layout smetana
+
+Main <|-- RunProgram
+Main : RunProgram();
+
+RunProgram <|--StartMenu
+RunProgram : startMenu();
+
+
+StartMenu : startMenu();
+
+StartMenu --|> User
+MainMenu<|-- User
+User <|-- Media
+
+User : getUser();
+User : #userName
+User : #password
+
+interface mediaFunctions
+abstract class Media
+Class Movies
+Class Series
+Class Categories
+
+Media : name
+Media : rating
+Media : releaseYear
+Media : genre
+Media : play();
+Media : stop();
+Media : deleteFromSaved();
+Media : save();
+
+Categories : ArrayList<Movies>
+Categories : ArrayList<Series>
+
+Media <|--Movies
+Media <|--Series
+
+mediaFunctions : play();
+mediaFunctions : stop();
+mediaFunctions : deleteFromSaved()
+mediaFunctions : save();
+
+
+
+
+mediaFunctions --|> Media
+
+interface MainMenu
+MainMenu : search();
+MainMenu : searchAllInCat();
+MainMenu : displayMyWatched();
+MainMenu : displayMySaved();
+
+
+
+FileIO : readData();
+FileIO : writeData();
+
+
+
+
+@enduml
