@@ -1,29 +1,24 @@
 import java.util.Scanner;
 public class StartMenu {
-
+    static Scanner scan = new Scanner(System.in);
 
     public static void startMenu() {
 
 
-        Scanner scan = new Scanner(System.in);
-
-
-
         System.out.println("Welcome to start menu");
-
-        //if  a user is alredy stored in .txt
         System.out.println("Chose your option");
-        System.out.println("1. Login");
-        System.out.println("2. Create user");
+        System.out.println("- Login");
+        System.out.println("- Create user");
 
-        int userInput = scan.nextInt();
+        String userInput = scan.nextLine();
 
-        if (userInput == 1) {
+
+        if (userInput.equalsIgnoreCase("login")) {
 
             System.out.println("LOGIN");
 
 
-           System.out.println("Enter your username: ");
+            System.out.println("Enter your username: ");
 
             String userName = scan.nextLine();
 
@@ -31,42 +26,43 @@ public class StartMenu {
             System.out.println("Enter your password: ");
 
             String password = scan.nextLine();
+        }
 
+        if (userInput.equalsIgnoreCase("create user"))
+        {
 
+               String userName = getUserName();
+               String password = getPassword();
 
-            if (userInput == 2){
-                System.out.println("Enter your userName for your user: ");
-                userName = scan.nextLine();
-
-                System.out.println("Enter your password for your user: ");
-                password = scan.nextLine();
-
-                createUser(userName,password);
+                User newUser = new User(userName,password);
             }
 
-        } else {
-
-            System.out.println("Please Create a user");
-
-            System.out.println("Enter your userName for your user: ");
-            String userName = scan.nextLine();
-
-            System.out.println("Enter your password for your user: ");
-            String password = scan.nextLine();
-
-            createUser(userName, password);
 
         }
 
 
 
+
+
+
+    private static String getUserName(){
+
+        System.out.println("Enter your userName for your user: ");
+        String userName = scan.nextLine();
+
+        return userName;
     }
 
 
-    private static void createUser(String userName, String password){
+    private static String getPassword(){
 
-        User newUser = new User(userName, password);
-    }
+        System.out.println("Enter your password for your user: ");
+        String password = scan.nextLine();
+
+            return password;
+        }
+
+
 
 
 }

@@ -17,7 +17,7 @@ public abstract class Media implements MediaFunctions
     public void stop()
     {
 //        System.out.println("stopped watching "+ Movie.getName());
-        //User.getOptions();
+//        //User.getOptions();
     }
 
     @Override
