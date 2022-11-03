@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+ !pragma layout smetana
+
+
+StartMenu : createUser();
+StartMenu : loginUser();
+
+MainMenu : search();
+MainMenu : searchAllInCat();
+MainMenu : displayMyWatched();
+MainMenu : displayMySaved();
+
+
+Media : releaseYear
+Media : rating
+
+Categories : ArrayList<Movies>
+Categories : ArrayList<series>
+
+Movies : String genre
+Movies :
+Series :
+
+User : userName
+User : password
+User : ArrayList<media> myWatched
+User : ArrayList<media> mySaved
+
+FileIO : readData();
+FileIO : writeData();
+
+
+@enduml
