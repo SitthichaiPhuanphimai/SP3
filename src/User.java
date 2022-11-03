@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class User {
+public class User implements MainMenu {
 
     String userName;
     String password;
@@ -11,17 +11,23 @@ public class User {
         this.password = password;
     }
 
-    public static void createUser(){
+    @Override
+    public void search() {
 
+    }
 
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter your username: ");
-        userName = scan.nextLine();
+    @Override
+    public void searchAllInCat() {
 
-        System.out.print("Enter your password: ");
-        password = scan.nextLine();
+    }
 
-        FileIO.writeDate();
+    @Override
+    public void displayMyWatced() {
+
+    }
+
+    @Override
+    public void displayMySaved() {
 
     }
 }
