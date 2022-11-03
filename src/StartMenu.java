@@ -1,12 +1,9 @@
 import java.util.Scanner;
 public class StartMenu {
+    static Scanner scan = new Scanner(System.in);
 
 
     public static void startMenu() {
-
-
-        Scanner scan = new Scanner(System.in);
-
 
 
         System.out.println("Welcome to start menu");
@@ -35,26 +32,15 @@ public class StartMenu {
 
 
             if (userInput == 2){
-                System.out.println("Enter your userName for your user: ");
-                userName = scan.nextLine();
 
-                System.out.println("Enter your password for your user: ");
-                password = scan.nextLine();
 
-                createUser(userName,password);
+                createUser();
             }
 
         } else {
 
-            System.out.println("Please Create a user");
 
-            System.out.println("Enter your userName for your user: ");
-            String userName = scan.nextLine();
-
-            System.out.println("Enter your password for your user: ");
-            String password = scan.nextLine();
-
-            createUser(userName, password);
+            createUser();
 
         }
 
@@ -63,7 +49,14 @@ public class StartMenu {
     }
 
 
-    private static void createUser(String userName, String password){
+    private static void createUser(){
+
+        System.out.println("Enter your userName for your user: ");
+
+        String userName = scan.nextLine();
+
+        System.out.println("Enter your password for your user: ");
+        String password = scan.nextLine();
 
         User newUser = new User(userName, password);
     }
