@@ -37,8 +37,8 @@ Media : save();
 Categories : ArrayList<Movies>
 Categories : ArrayList<Series>
 
-Media <|--Movies
-Media <|--Series
+Categories <|--Movies
+Categories <|--Series
 
 mediaFunctions : play();
 mediaFunctions : stop();
@@ -61,6 +61,9 @@ MainMenu : displayMySaved();
 FileIO : readData();
 FileIO : writeData();
 
+RunProgram <|-- FileIO
+Media <|--Categories
+FileIO <|-- Media
 
 
 

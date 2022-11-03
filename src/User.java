@@ -6,11 +6,13 @@ public class User {
     String password;
 
     public User(String userName, String password) {
+
         this.userName = userName;
         this.password = password;
     }
 
     public static void createUser(){
+
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter your username: ");
