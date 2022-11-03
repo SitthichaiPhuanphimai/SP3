@@ -1,6 +1,9 @@
 import java.util.Scanner;
 public class StartMenu {
     static Scanner scan = new Scanner(System.in);
+    static String newUserName;
+    static String newPassword;
+
 
     public static void startMenu() {
 
@@ -31,17 +34,15 @@ public class StartMenu {
         if (userInput.equalsIgnoreCase("create user"))
         {
 
-               String userName = getUserName();
-               String password = getPassword();
-
-                User newUser = new User(userName,password);
-            }
-
+                newUserName = getUserName();
+                newPassword = getPassword();
 
         }
 
 
+    }
 
+    User newUser = new User(newUserName,newPassword);
 
 
 
@@ -61,7 +62,6 @@ public class StartMenu {
 
             return password;
         }
-
 
 
 
