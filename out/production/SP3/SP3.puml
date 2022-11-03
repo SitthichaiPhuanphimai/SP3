@@ -25,6 +25,22 @@ Class Movies
 Class Series
 Class Categories
 
+Movies : String name
+Movies : int rating
+Movies : boolean hasWatched
+Movies : getName()
+Movies : getRating()
+Movies : getRating()
+
+Series : String name
+Series : int episode
+Series : int season
+Series : int rating
+Series : boolean hasWatched
+Series : getName()
+Series : getSeason()
+
+
 Media : name
 Media : rating
 Media : releaseYear
@@ -43,7 +59,8 @@ Categories <|--Series
 mediaFunctions : play();
 mediaFunctions : stop();
 mediaFunctions : deleteFromSaved()
-mediaFunctions : save();
+mediaFunctions : saveMovie();
+mediaFunctions : saveSeries();
 
 
 
@@ -55,6 +72,7 @@ MainMenu : search();
 MainMenu : searchAllInCat();
 MainMenu : displayMyWatched();
 MainMenu : displayMySaved();
+MainMenu : getOptions();
 
 
 

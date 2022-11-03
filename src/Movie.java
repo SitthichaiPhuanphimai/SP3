@@ -26,4 +26,12 @@ public class Movie extends Media
     {
         return hasWatched;
     }
+
+    @Override
+    public String toString() {
+        return
+               '\n'+ "Name= " + name + '\n' +
+                ", Rating= " + rating + '\n'+
+                ", HasWatched= " + hasWatched;
+    }
 }
