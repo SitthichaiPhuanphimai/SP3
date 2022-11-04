@@ -12,7 +12,7 @@ public class Movie extends Media
     }
 
 
-    public String getName()
+    public static String getName()
     {
         return name;
     }
