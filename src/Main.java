@@ -1,17 +1,16 @@
-public class Main {
+import java.util.ArrayList;
+
+public class Main
+{
 
     public static void main(String[] args) {
 
-        RunProgram.run();
 
 
-        /*Categories movieList = new Categories();
-
-
-        Movie titanic = new Movie("Titanic", 0, false);
-        movieList.addMovie(titanic);
-
-        System.out.println(movieList.toString());
-*/
+//        ArrayList<String> data =  FileIO.();
+//        if(data == null){
+//            data = textUI.getUserInput("Skriv spillernavn. Tast Q for at quitte",6);
+//        }
+//        RunProgram.run();
     }
 }
