@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
+
 public class RunProgram {
+    ArrayList<Movie> movieList = new ArrayList<>();
 
     public static void run()
     {
@@ -8,20 +10,10 @@ public class RunProgram {
         StartMenu.startMenu();
     }
 
-    public static void loadData()
+    public void loadMovieData()
     {
-        ArrayList<String> movieData =  FileIO.read
-        if(data == null){
-            data = textUI.getUserInput("Skriv spillernavn. Tast Q for at quitte",6);
-        }
-        this.createPlayers(data);
-        //**********************
-        // Load af felt data og bygge boardet
-        // **********************
-        String[] fieldData = fileIO.readBoardData();
-        board = new Board(fieldData);
 
-
-        r
     }
+
+
 }

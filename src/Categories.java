@@ -19,6 +19,15 @@ public class Categories
         seriesList.add(serie);
     }
 
+    public void loadData(ArrayList movieList)
+    {
+         FileIO.writeSavedMovieData(movieList);
+
+
+    }
+
+
+
     @Override
     public String toString() {
         return

@@ -1,18 +1,33 @@
 public class Movie extends Media
 {
     private String name;
-    private int rating;
-    private boolean hasWatched;
 
-    public Movie(String name, int rating, boolean hasWatched)
+   private int releaseYear;
+
+   private String genre;
+    private int rating;
+
+
+    public Movie(String name, int releaseYear, String genre, int rating)
     {
         this.name = name;
+        this.releaseYear = releaseYear;
+        this.genre = genre;
         this.rating = rating;
-        this.hasWatched = hasWatched;
+
+
+
     }
 
+    public int getReleaseYear() {
+        return releaseYear;
+    }
 
-    public static String getName()
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getName()
     {
         return name;
     }
@@ -22,16 +37,12 @@ public class Movie extends Media
         return rating;
     }
 
-    public boolean isHasWatched()
-    {
-        return hasWatched;
-    }
+
 
     @Override
     public String toString() {
         return
                '\n'+ "Name= " + name + '\n' +
-                ", Rating= " + rating + '\n'+
-                ", HasWatched= " + hasWatched;
+                ", Rating= " + rating + '\n';
     }
 }

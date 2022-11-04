@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class User implements MainMenu {
 
+    Scanner scan = new Scanner(System.in);
     String userName;
     String password;
 
@@ -13,6 +14,15 @@ public class User implements MainMenu {
 
     @Override
     public void search() {
+
+        System.out.println("Please enter Media name: ");
+
+        String choice = scan.nextLine();
+
+
+
+
+
 
     }
 

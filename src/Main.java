@@ -2,8 +2,13 @@ import java.util.ArrayList;
 
 public class Main
 {
-
+    public  static ArrayList<Movie> movieList = new ArrayList<>();
     public static void main(String[] args) {
+
+
+            Movie m = new Movie("Titanic",1995, "drama", 2);
+
+
 
 
 

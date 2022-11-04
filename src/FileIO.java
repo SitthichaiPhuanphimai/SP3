@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class FileIO
 {
-        public ArrayList<Movie> readSavedMovieList() throws FileNotFoundException
+        public ArrayList<String> readSavedMovieList() throws FileNotFoundException
         {
 
             File file = new File("src/data/movie.txt");
-            ArrayList<Movie> movies = new ArrayList<>();
+            ArrayList<String> movies = new ArrayList<>();
             Scanner input = new Scanner(file);
             while (input.hasNextLine())
             {
@@ -26,7 +26,7 @@ public class FileIO
                 movies.add(m);
             }
 
-            for (Movie m : movies)
+            for (String m : movies)
             {
                 System.out.println("Movie name: " + m.getName() + " release year: " + m.getReleaseYear() + "Genre " + m.getGenre() + "Rating: "+ m.getRating());
             }
