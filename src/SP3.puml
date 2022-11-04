@@ -8,7 +8,6 @@ Main : RunProgram();
 RunProgram <|--StartMenu
 RunProgram : startMenu();
 
-
 StartMenu : startMenu();
 
 StartMenu --|> User
@@ -39,6 +38,9 @@ Series : int rating
 Series : boolean hasWatched
 Series : getName()
 Series : getSeason()
+Series : getRating()
+Series : getEpisode()
+
 
 
 Media : name
