@@ -39,4 +39,16 @@ public class Serie
     {
         return hasWatched;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Serie{" +
+                "name='" + name + '\'' +
+                ", episode=" + episode +
+                ", season=" + season +
+                ", rating=" + rating +
+                ", hasWatched=" + hasWatched +
+                '}';
+    }
 }
