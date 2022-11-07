@@ -1,10 +1,10 @@
 public interface MediaFunctions
 {
-    public void play();
-    public void stop();
-    public void saveMovie();
-    public void saveSeries();
-    public void deleteFromSaved();
+    public void play(Media media);
+    public void stop(Media media);
+    public void saveMovie(Media movie);
+    public void saveSeries(Media series);
+    public void deleteFromSaved(Media media);
 
 
 

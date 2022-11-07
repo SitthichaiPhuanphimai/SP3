@@ -8,31 +8,31 @@ public abstract class Media implements MediaFunctions
 
 
     @Override
-    public void play()
+    public void play(Media media)
     {
 
     }
 
     @Override
-    public void stop()
+    public void stop(Media media)
     {
 
     }
 
     @Override
-    public void saveMovie()
+    public void saveMovie(Media movie)
     {
 
     }
 
     @Override
-    public void saveSeries()
+    public void saveSeries(Media series)
     {
 
     }
 
     @Override
-    public void deleteFromSaved()
+    public void deleteFromSaved(Media media)
     {
 
     }

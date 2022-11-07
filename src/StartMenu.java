@@ -18,33 +18,39 @@ public class StartMenu {
 
         if (userInput.equalsIgnoreCase("login")) {
 
-            System.out.println("LOGIN");
-
-
-            System.out.println("Enter your username: ");
-
-            String userName = scan.nextLine();
-
-
-            System.out.println("Enter your password: ");
-
-            String password = scan.nextLine();
+           login();
         }
 
         if (userInput.equalsIgnoreCase("create user"))
         {
 
-                newUserName = getUserName();
-                newPassword = getPassword();
+              createUser();
 
         }
 
 
     }
 
-    User newUser = new User(newUserName,newPassword);
+
+    private static void login(){
+
+        System.out.println("LOGIN");
 
 
+        System.out.println("Enter your username: ");
+
+        String userName = scan.nextLine();
+
+
+        System.out.println("Enter your password: ");
+
+        String password = scan.nextLine();
+
+    }
+    private static void createUser(){
+        newUserName = getUserName();
+        newPassword = getPassword();
+    }
 
     private static String getUserName(){
 

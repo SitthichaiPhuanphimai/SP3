@@ -10,10 +10,7 @@ public class RunProgram {
         StartMenu.startMenu();
     }
 
-    public void loadMovieData()
-    {
 
-    }
 
 
 }
