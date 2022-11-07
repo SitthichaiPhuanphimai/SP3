@@ -59,13 +59,6 @@ public class FileIO
 
 
 
-    private static ArrayList<Movie> createMovieDatabase()  {
-
-
-        ArrayList<Movie> movieList = new ArrayList<>();
-
-
-    }
 
 
 }

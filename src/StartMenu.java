@@ -15,7 +15,7 @@ public class StartMenu {
 
         if (userInput.equalsIgnoreCase("login")) {
 
-           Login.login();
+           UserLogin.login();
         }
 
         if (userInput.equalsIgnoreCase("create user"))
