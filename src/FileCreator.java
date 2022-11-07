@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class FileCreator {
 
     Scanner scan = new Scanner(System.in);
-
+    Scanner passw = new Scanner (System.in);
     public void createFile()
     {
         try
@@ -23,13 +23,13 @@ public class FileCreator {
         }
     }
 
-    public void writeUsers(Scanner scan, Scanner passw) // should scanner happen in user class
+    public static void writeUsers(String userName, String password) // should scanner happen in user class
     {
         try
         {
             FileWriter usrWriter = new FileWriter("users.txt");
-            usrWriter.write(scan.nextLine()); // again should there be a variable in user class when you create user to insert here.
-            usrWriter.write(passw.nextLine()); // again should there be a variable in user class when you create user to insert here.
+            usrWriter.write(userName); // again should there be a variable in user class when you create user to insert here.
+            usrWriter.write(password); // again should there be a variable in user class when you create user to insert here.
             usrWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e)
@@ -38,6 +38,8 @@ public class FileCreator {
             e.printStackTrace();
         }
     }
+
+
 
 
 }

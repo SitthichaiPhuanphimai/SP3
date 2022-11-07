@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TextUI {
 
 
-    {
+
         public void mediaFunctions() {
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
@@ -32,4 +32,4 @@ public class TextUI {
             System.out.println("****************");
         }
     }
-}
+
