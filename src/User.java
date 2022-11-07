@@ -22,6 +22,7 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void search() {
 
+
     }
 
     @Override
@@ -32,12 +33,18 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void displayMyWatced() {
 
+        for (Media m:myWatched) {
+            System.out.println(m);
+        }
+
     }
 
     @Override
     public void displayMySaved() {
 
-
+        for (Media m:mySaved) {
+            System.out.println(m);
+        }
     }
 
     @Override
@@ -58,6 +65,7 @@ public class User implements MainMenu, MediaFunctions{
     public void saveMovie(Media movie) {
 
         mySaved.add(movie);
+        System.out.println(movie + "has been added to your saved list");
 
     }
 
@@ -65,6 +73,7 @@ public class User implements MainMenu, MediaFunctions{
     public void saveSeries(Media series) {
 
         mySaved.add(series);
+        System.out.println(series + " has been added to your saved list");
 
     }
 
@@ -72,6 +81,7 @@ public class User implements MainMenu, MediaFunctions{
     public void deleteFromSaved(Media media) {
 
         mySaved.remove(media);
+        System.out.println(media+ "has been removed from your saved list");
 
     }
 }
