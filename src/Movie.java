@@ -8,14 +8,8 @@ public class Movie extends Media
     private int rating;
 
 
-    public Movie(String name, int releaseYear, String genre, int rating)
-    {
-        this.name = name;
-        this.releaseYear = releaseYear;
-        this.genre = genre;
-        this.rating = rating;
-
-
+    public Movie(String name, float rating, int releaseYear, String genre) {
+        super(name, rating, releaseYear, genre);
 
     }
 
@@ -32,7 +26,7 @@ public class Movie extends Media
         return name;
     }
 
-    public int getRating()
+    public float getRating()
     {
         return rating;
     }

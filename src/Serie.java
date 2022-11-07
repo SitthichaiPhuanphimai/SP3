@@ -1,18 +1,15 @@
-public class Serie
+public class Serie extends Media
 {
     private String name;
     private int episode;
     private int season;
-    private int rating;
-    private boolean hasWatched;
+    private float rating;
 
-    public Serie(String name, int episode, int season, int rating, boolean hasWatched)
-    {
-        this.name = name;
+    public Serie(String name, float rating, int releaseYear, String genre, String name1, int episode, int season, float rating1) {
+        super(name, rating, releaseYear, genre);
         this.episode = episode;
         this.season = season;
-        this.rating = rating;
-        this.hasWatched = hasWatched;
+
     }
 
     public String getName()
@@ -30,15 +27,11 @@ public class Serie
         return season;
     }
 
-    public int getRating()
+    public float getRating()
     {
         return rating;
     }
 
-    public boolean isHasWatched()
-    {
-        return hasWatched;
-    }
 
     @Override
     public String toString()
@@ -47,8 +40,6 @@ public class Serie
                 "name='" + name + '\'' +
                 ", episode=" + episode +
                 ", season=" + season +
-                ", rating=" + rating +
-                ", hasWatched=" + hasWatched +
-                '}';
+                ", rating=" + rating;
     }
 }

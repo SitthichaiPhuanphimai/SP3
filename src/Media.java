@@ -1,4 +1,4 @@
-public abstract class Media implements MediaFunctions
+public abstract class Media
 {
     protected String name;
     protected float rating;
@@ -6,36 +6,37 @@ public abstract class Media implements MediaFunctions
     protected String genre;
 
 
-
-    @Override
-    public void play(Media media)
-    {
-
-    }
-
-    @Override
-    public void stop(Media media)
-    {
-
-    }
-
-    @Override
-    public void saveMovie(Media movie)
-    {
-
-    }
-
-    @Override
-    public void saveSeries(Media series)
-    {
-
-    }
-
-    @Override
-    public void deleteFromSaved(Media media)
-    {
-
+    public Media(String name, float rating, int releaseYear, String genre) {
+        this.name = name;
+        this.rating = rating;
+        this.releaseYear = releaseYear;
+        this.genre = genre;
     }
 
 
+    public String getName() {
+        return name;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    @Override
+    public String toString() {
+        return "Media{" +
+                "name='" + name + '\'' +
+                ", rating=" + rating +
+                ", releaseYear=" + releaseYear +
+                ", genre='" + genre + '\'' +
+                '}';
+    }
 }
