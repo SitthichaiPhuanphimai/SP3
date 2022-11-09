@@ -37,7 +37,7 @@ public class TextUI{
 
         }
 
-        public static void mediaFunctions(User currentUser, Media media) {
+        public static void mediaFunctions(String media) {
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("1. Play ");
@@ -63,10 +63,10 @@ public class TextUI{
         }
 
 
-        public static void displayMainMenu(User currentUser) throws FileNotFoundException {
+        public static void displayMainMenu() throws FileNotFoundException {
             Scanner scan2 = new Scanner(System.in);
             System.out.println("****************");
-            System.out.println("Welcome to DreamStream "+currentUser.getUserName()+"!");
+            System.out.println("Welcome to DreamStream !");
             System.out.println("What would you like to do today?: ");
             System.out.println("1. Search for a movie. ");
             System.out.println("2. Search for a Series. ");
@@ -88,7 +88,7 @@ public class TextUI{
 
         }
 
-        public static void userSelection() {
+        public static void userSelection() throws FileNotFoundException {
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("What would you like to do: ");
@@ -105,13 +105,20 @@ public class TextUI{
                 userSelection();
             }
 
+
+
+
             if (userInput == 2) {
+
+                System.out.println(FileIO.setupMovies().get(getMovieNr() ).getName() );
+                String s = FileIO.setupMovies().get(getMovieNr() ).getName();
+                mediaFunctions(s);
 
             }
 
             if (userInput == 3) {
 
-
+                displayMainMenu();
             }
 
 
@@ -124,6 +131,14 @@ public class TextUI{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static int getMovieNr(){
+        Scanner scan = new Scanner(System.in);
+
+        int movieNr = scan.nextInt();
+
+        return movieNr;
     }
 }
 

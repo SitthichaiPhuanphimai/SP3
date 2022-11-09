@@ -61,6 +61,7 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void play(Media media) {
 
+
         System.out.println(media + "is now playing");
 
     }

@@ -17,7 +17,7 @@ public class RunProgram {
 
         TextUI.displayLoginScreen();
 
-        TextUI.displayMainMenu(currentuser);
+        TextUI.displayMainMenu();
 
 
 

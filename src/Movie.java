@@ -37,13 +37,5 @@ public class Movie extends Media
     }
 
 
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "name='" + name + '\'' +
-                ", releaseYear=" + releaseYear +
-                ", genre=" + genre +
-                ", rating=" + rating +
-                '}';
-    }
+
 }
