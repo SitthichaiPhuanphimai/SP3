@@ -8,18 +8,34 @@ public class RunProgram {
 
 
 
-    public void run() throws FileNotFoundException {
-
+    public  void run() throws FileNotFoundException {
 
         this.users = FileIO.setupUsers();
+        this.movies = FileIO.setupMovies();
+        currentuser = users.get(0);
+
+
+        TextUI.displayLoginScreen();
+
+        TextUI.displayMainMenu(currentuser);
 
 
 
-       StartMenu.startMenu();
 
-       currentuser = users.get(0);
 
-       TextUI.displayMainMenu(currentuser);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

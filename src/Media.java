@@ -1,17 +1,12 @@
+import java.util.ArrayList;
+
 public abstract class Media
 {
-    protected String name;
-    protected float rating;
-    protected int releaseYear;
-    protected String genre;
+    private String name;
+    private float rating;
+    private int releaseYear;
+    private ArrayList<String> genre;
 
-
-    public Media(String name, float rating, int releaseYear, String genre) {
-        this.name = name;
-        this.rating = rating;
-        this.releaseYear = releaseYear;
-        this.genre = genre;
-    }
 
 
     public String getName() {
@@ -26,7 +21,7 @@ public abstract class Media
         return releaseYear;
     }
 
-    public String getGenre() {
+    public ArrayList<String> getGenre() {
         return genre;
     }
 

@@ -33,7 +33,6 @@ public class User implements MainMenu, MediaFunctions{
 
         String search = scan.nextLine();
 
-            FileIO.parseFile("src/data/movie.txt", search);
 
     }
 

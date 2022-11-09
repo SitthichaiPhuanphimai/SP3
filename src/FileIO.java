@@ -1,14 +1,28 @@
-
+import java.util.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 
 public class FileIO {
-    public FileIO() {
-    }
+    Scanner scan = new Scanner(System.in);
 
+    public static ArrayList<String> readData(File file)
+    {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            ArrayList<String> data = new ArrayList<>();
+
+            String currentLine = reader.readLine();
+            while (currentLine != null) {
+                data.add(currentLine);
+                currentLine =reader.readLine();
+            }
+            return data;
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public void createFile() {
         try {
             File usrFile = new File("users.txt");
@@ -24,19 +38,10 @@ public class FileIO {
     }
 
 
-    public static void parseFile(String fileName, String searchStr) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File(fileName));
-        while (scan.hasNext()) {
-            String line = scan.nextLine().toLowerCase().toString();
-            if (line.contains(searchStr.toLowerCase())) {
-                System.out.println(line);
-            }
-        }
-    }
 
     public static void writeUser(String userName, String password) {
         try {
-            FileWriter writer = new FileWriter("src/Data/test.txt", true);
+            FileWriter writer = new FileWriter("src/Data/users.txt", true);
             writer.write(userName + " " + password + '\n');
             writer.close();
         } catch (IOException e) {
@@ -45,69 +50,86 @@ public class FileIO {
 
     }
 
-    public static void checkUser(String userName, String password) throws FileNotFoundException {
-        Scanner scan = new Scanner(new File("src/Data/test.txt"));
-        Scanner keyboard = new Scanner(System.in);
 
-            String user = scan.next();
 
-            String pass = scan.next();
+    public static ArrayList<Movie> setupMovies()
+    {
+        ArrayList<Movie> movieList = new ArrayList<>();
 
-            String inpUser = userName;
-            String inpPass = password; // gets input from user
+        File file = new File("src/Data/movie.txt");
 
-            if (inpUser.equals(user) && inpPass.equals(pass)) {
-                System.out.print("Login successful");
-            } else {
-                System.out.print("user name & password not found");
+        try
+        {
+            Scanner readMovies = new Scanner(file);
+
+            while (readMovies.hasNextLine())
+            {
+                String line = readMovies.nextLine();
+                String[] values = line.split(";");
+
+                String name = values[0].trim();
+
+                int releaseYear = Integer.parseInt(values[1].trim());
+                ArrayList<String> genre = new ArrayList<>();
+
+                String[] genreArr = values[2].trim().split(",");
+                genre.addAll(Arrays.asList(genreArr));
+
+                float rating = Float.parseFloat(values[3].trim().replace(",", "."));
+
+                movieList.add(new Movie(name, releaseYear, genre, rating));
             }
-
+        } catch (IOException e)
+        {
+            System.out.println("File not found");
+        }
+        return movieList;
     }
 
-        public static ArrayList<String> readData(File file)
-        {
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                ArrayList<String> data = new ArrayList<>();
+    public static ArrayList<User> setupUsers()
+    {
+        ArrayList<String>userdata = readData(new File("src/Data/users.txt"));
+        ArrayList<User>userList = new ArrayList<>();
 
-                String currentLine = reader.readLine();
-                while (currentLine != null) {
-                    data.add(currentLine);
-                    currentLine =reader.readLine();
+        for (String s:userdata) {
+            String[] userLogin = s.split(" ");
+
+            String userName = userLogin[0];
+            String userPassword = userLogin[1];
+
+
+            userList.add(new User(userName,userPassword, new ArrayList<>(), new ArrayList<>()));
+        }
+
+        return userList;
+    }
+
+
+
+
+    public static ArrayList<Movie> searchMoviesList(ArrayList<Movie> movieList){
+
+        System.out.println("Enter your a movie title: ");
+        Scanner scan = new Scanner(System.in);
+        String searchStr = scan.nextLine();
+        ArrayList<Movie> result = new ArrayList<>();
+        for (Movie m : movieList)
+        {
+            if(m.getName().toLowerCase().contains(searchStr.toLowerCase()))
+            {
+                result.add(m);
+                System.out.println("Movie nr. "+movieList.indexOf(m)+": "+(m));
+
                 }
-                return data;
-
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
 
 
-        public static ArrayList<User> setupUsers()
-        {
-          ArrayList<String>userdata = readData(new File("src/Data/test.txt"));
-          ArrayList<User>userList = new ArrayList<>();
-
-            for (String s:userdata) {
-                String[] userLogin = s.split(" ");
-
-                String userName = userLogin[0];
-                String userPassword = userLogin[1];
-
-
-                userList.add(new User(userName,userPassword, new ArrayList<>(), new ArrayList<>()));
             }
 
-            return userList;
-        }
-
+        return result;
+    }
 
 
 
 
 }
-
-
 

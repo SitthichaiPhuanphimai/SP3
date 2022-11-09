@@ -1,9 +1,41 @@
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TextUI {
+import static java.awt.Event.ENTER;
+
+public class TextUI{
+
+        public static void displayLoginScreen()throws FileNotFoundException{
+
+            Scanner scan = new Scanner(System.in);
+
+            System.out.println("Welcome to start menu");
+            System.out.println("Chose your option");
+            System.out.println("- Login");
+            System.out.println("- Create user");
+
+            String userInput = scan.nextLine();
 
 
+            if (userInput.equalsIgnoreCase("login")) {
+
+                UserLogin.login();
+            }
+
+            if (userInput.equalsIgnoreCase("create user"))
+            {
+
+                CreateUser.createUser();
+
+            }
+
+
+
+
+        }
 
         public static void mediaFunctions(User currentUser, Media media) {
             Scanner scan = new Scanner(System.in);
@@ -37,33 +69,69 @@ public class TextUI {
             System.out.println("Welcome to DreamStream "+currentUser.getUserName()+"!");
             System.out.println("What would you like to do today?: ");
             System.out.println("1. Search for a movie. ");
-            System.out.println("2. Display your watched movies. ");
-            System.out.println("3. Display your " + "watch later " + "movies ");
-            System.out.println("4. Exit. "); // should we run a add all movies wa
+            System.out.println("2. Search for a Series. ");
+            System.out.println("3. Display your watched movies. ");
+            System.out.println("4. Display your " + "watch later " + "movies ");
+            System.out.println("5. Exit. "); // should we run a add all movies wa
             System.out.println("****************");
 
             int userChoice = scan2.nextInt();
 
-            if(userChoice == 1)
-            {
-                currentUser.search();
-            }
 
-            if (userChoice == 2)
-            {
-               currentUser.displayMyWatced();
-            }
+            if(userChoice == 1){
 
-            if(userChoice == 3)
-            {
-                currentUser.displayMySaved();
-            }
-
-            if (userChoice == 4)
-            {
-                System.out.println("Goodbye");
+               FileIO.searchMoviesList(FileIO.setupMovies());
+                System.out.println("Please remember the movie nr.");
+                promptEnterKey();
+                userSelection();
             }
 
         }
+
+        public static void userSelection() {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("****************");
+            System.out.println("What would you like to do: ");
+            System.out.println("1.Search again");
+            System.out.println("2.Select movie");
+            System.out.println("3.return to Main menu");
+
+            int userInput = scan.nextInt();
+
+            if (userInput == 1) {
+                FileIO.searchMoviesList(FileIO.setupMovies());
+                System.out.println("Please remember the movie nr.");
+                promptEnterKey();
+                userSelection();
+            }
+
+            if (userInput == 2) {
+
+            }
+
+            if (userInput == 3) {
+
+
+            }
+
+
+        }
+
+    public static void promptEnterKey(){
+        System.out.println("Press enter to continue");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+}
+
+
+
+
+
+
+
+
 

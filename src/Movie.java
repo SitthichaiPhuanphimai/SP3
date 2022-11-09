@@ -1,15 +1,20 @@
+import java.util.ArrayList;
+
 public class Movie extends Media
 {
     private String name;
 
    private int releaseYear;
 
-   private String genre;
-   private int rating;
+   private ArrayList<String> genre;
+   private float rating;
 
 
-    public Movie(String name, int releaseYear, String genre,float rating) {
-        super(name, rating, releaseYear, genre);
+    public Movie(String name, int releaseYear, ArrayList<String> genre, float rating) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+        this.genre = genre;
+        this.rating = rating;
 
     }
 
@@ -17,7 +22,7 @@ public class Movie extends Media
         return releaseYear;
     }
 
-    public String getGenre() {
+    public ArrayList<String> getGenre() {
         return genre;
     }
 
@@ -32,11 +37,13 @@ public class Movie extends Media
     }
 
 
-
     @Override
     public String toString() {
-        return
-               '\n'+ "Name= " + name + '\n' +
-                ", Rating= " + rating + '\n';
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", genre=" + genre +
+                ", rating=" + rating +
+                '}';
     }
 }
