@@ -36,6 +36,12 @@ public class Movie extends Media
         return rating;
     }
 
-
-
+    @Override
+    public String toString() {
+        return
+                "name='" + name + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", genre=" + genre +
+                ", rating=" + rating;
+    }
 }

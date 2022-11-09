@@ -9,21 +9,7 @@ public abstract class Media
 
 
 
-    public String getName() {
-        return name;
-    }
 
-    public float getRating() {
-        return rating;
-    }
-
-    public int getReleaseYear() {
-        return releaseYear;
-    }
-
-    public ArrayList<String> getGenre() {
-        return genre;
-    }
 
     @Override
     public String toString() {

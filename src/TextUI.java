@@ -8,6 +8,8 @@ import static java.awt.Event.ENTER;
 
 public class TextUI{
 
+   static ArrayList<Movie> movies = FileIO.setupMovies();
+
         public static void displayLoginScreen()throws FileNotFoundException{
 
             Scanner scan = new Scanner(System.in);
@@ -37,7 +39,7 @@ public class TextUI{
 
         }
 
-        public static void mediaFunctions(String media) {
+        public static void mediaFunctions() {
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("1. Play ");
@@ -110,9 +112,9 @@ public class TextUI{
 
             if (userInput == 2) {
 
-                System.out.println(FileIO.setupMovies().get(getMovieNr() ).getName() );
-                String s = FileIO.setupMovies().get(getMovieNr() ).getName();
-                mediaFunctions(s);
+                System.out.println("you have selected:"+FileIO.setupMovies().get(getMovieNr() ).getName());
+
+                mediaFunctions();
 
             }
 
@@ -135,6 +137,8 @@ public class TextUI{
 
     public static int getMovieNr(){
         Scanner scan = new Scanner(System.in);
+
+        System.out.println("Enter the movie number: ");
 
         int movieNr = scan.nextInt();
 
