@@ -1,15 +1,29 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class RunProgram {
-    ArrayList<User> users = new ArrayList<>(); // laver en ny arraylist der kan indeholde alle users
+    ArrayList<User> users; // laver en ny arraylist der kan indeholde alle users
+    ArrayList<Movie> movies;
     User currentuser; //brugeren som er den nuværende bruger af programmet
 
 
 
-    public static void run()
-    {
+    public void run() throws FileNotFoundException {
 
-        StartMenu.startMenu();
+
+        this.users = FileIO.setupUsers();
+
+
+
+       StartMenu.startMenu();
+
+       currentuser = users.get(0);
+
+       TextUI.displayMainMenu(currentuser);
+
+
+
+
     }
 
 

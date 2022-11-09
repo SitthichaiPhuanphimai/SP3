@@ -1,6 +1,9 @@
+import java.io.FileNotFoundException;
+
 public interface MainMenu {
 
-    public void search();
+
+    void search() throws FileNotFoundException;
 
     public void searchAllInCat();
 

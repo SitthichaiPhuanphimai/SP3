@@ -1,8 +1,9 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class StartMenu {
     static Scanner scan = new Scanner(System.in);
 
-    public static void startMenu() {
+    public static void startMenu() throws FileNotFoundException {
 
 
         System.out.println("Welcome to start menu");
@@ -24,6 +25,7 @@ public class StartMenu {
             CreateUser.createUser();
 
         }
+
 
 
     }

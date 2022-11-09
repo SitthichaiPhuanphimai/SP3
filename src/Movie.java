@@ -5,10 +5,10 @@ public class Movie extends Media
    private int releaseYear;
 
    private String genre;
-    private int rating;
+   private int rating;
 
 
-    public Movie(String name, float rating, int releaseYear, String genre) {
+    public Movie(String name, int releaseYear, String genre,float rating) {
         super(name, rating, releaseYear, genre);
 
     }

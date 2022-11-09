@@ -10,7 +10,7 @@ public class CreateUser {
         String newUserName = getNewUserName();
         String newPassword = getNewPassword();
 
-        FileIO.writeUsers(newUserName, newPassword);
+        FileIO.writeUser(newUserName, newPassword);
 
 
     }

@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,9 +20,20 @@ public class User implements MainMenu, MediaFunctions{
 
     }
 
-    @Override
-    public void search() {
+    public String getUserName() {
+        return userName;
+    }
 
+    @Override
+    public void search() throws FileNotFoundException {
+
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Type in your search: ");
+
+        String search = scan.nextLine();
+
+            FileIO.parseFile("src/data/movie.txt", search);
 
     }
 
@@ -83,5 +95,13 @@ public class User implements MainMenu, MediaFunctions{
         mySaved.remove(media);
         System.out.println(media+ "has been removed from your saved list");
 
+    }
+
+    @Override
+    public String toString() {
+        return "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", myWatched=" + myWatched +
+                ", mySaved=" + mySaved;
     }
 }

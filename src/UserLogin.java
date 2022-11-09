@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UserLogin {
@@ -5,19 +6,32 @@ public class UserLogin {
 
     static Scanner scan = new Scanner(System.in);
 
-    static void login(){
+    static void login() throws FileNotFoundException {
 
-        System.out.println("LOGIN");
+       String userName = getUserName();
+       String password = getPassword();
 
+        FileIO.checkUser(userName,password);
 
-        System.out.println("Enter your username: ");
-
-        String userName = scan.nextLine();
-
-
-        System.out.println("Enter your password: ");
-
-        String password = scan.nextLine();
 
     }
+
+    private static String getUserName(){
+
+        System.out.println("Enter your userName for your user: ");
+        String userName = scan.nextLine();
+
+        return userName;
+    }
+
+    private static String getPassword(){
+
+        System.out.println("Enter your password for your user: ");
+        String password = scan.nextLine();
+
+        return password;
+    }
+
+
+
 }
