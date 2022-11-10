@@ -28,9 +28,19 @@ public class FileIO {
     }
 
 
-    public static void createSavedMedias(String name,Media media) {
+    public static void createSavedMedia(String name,Media media) {
         try {
-            FileWriter writer = new FileWriter("src/Data/savedFilm" + name + ".txt", true);
+            FileWriter writer = new FileWriter("src/Data/savedMedia_" + name + ".txt", true);
+            writer.write(media.getName()+'\n');
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void createWatchedMedia(String name,Media media) {
+        try {
+            FileWriter writer = new FileWriter("src/Data/WatchedMedia_" + name + ".txt", true);
             writer.write(media.getName()+'\n');
             writer.close();
         } catch (IOException e) {
@@ -160,7 +170,7 @@ public class FileIO {
             if(m.getName().toLowerCase().contains(searchStr.toLowerCase()))
             {
                 result.add(m);
-                System.out.println("Movie nr. "+movieList.indexOf(m)+": "+(m));
+                System.out.println("Media nr. "+movieList.indexOf(m)+": "+(m));
 
                 }
 
@@ -181,7 +191,7 @@ public class FileIO {
             if(s.getName().toLowerCase().contains(searchStr.toLowerCase()))
             {
                 result.add(s);
-                System.out.println(" Movie nr. " + serieList.indexOf(s)+ ": " + (s) ); // +1 ved display til user og -1 til når man skal adde index til user savedMovies
+                System.out.println(" Media nr. " + serieList.indexOf(s)+ ": " + (s) ); // +1 ved display til user og -1 til når man skal adde index til user savedMovies
 
             }
 

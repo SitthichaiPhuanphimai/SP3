@@ -54,12 +54,14 @@ public class TextUI{
             switch (userInput){
 
                 case 1:
-                    System.out.println(media.getName() + " is now playing");
+                    currentUser.play(media);
+                    FileIO.createWatchedMedia(currentUser.getUserName(),media);
                     promptStop(media,currentUser);
                     break;
                 case 2:
                     currentUser.saveMovie(media);
-                    FileIO.createSavedMedias(currentUser.getUserName(),media);
+                    FileIO.createSavedMedia(currentUser.getUserName(),media);
+                    displayMainMenu(currentUser);
                     break;
                 case 3:
                     displayMainMenu(currentUser);
@@ -134,7 +136,7 @@ public class TextUI{
                     movieSelection(currentUser);
                     break;
                 case 2:
-                    Media media = movies.get(getMovieNr());
+                    Media media = movies.get(getMediaNr());
                     System.out.println("You have selected" + '\n' + media);
 
                     mediaFunctions(media, currentUser);
@@ -163,7 +165,7 @@ public class TextUI{
                         movieSelection(currentUser);
                         break;
                     case 2:
-                        Media media = series.get(getMovieNr());
+                        Media media = series.get(getMediaNr());
                         System.out.println("You have selected"+'\n'+ media);
 
                         mediaFunctions(media,currentUser);
@@ -196,10 +198,10 @@ public class TextUI{
         }
     }
 
-    public static int getMovieNr(){
+    public static int getMediaNr(){
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Enter the movie number: ");
+        System.out.println("Enter the media number: ");
 
         int movieNr = scan.nextInt();
 

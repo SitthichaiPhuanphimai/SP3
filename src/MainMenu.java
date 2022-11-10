@@ -5,7 +5,6 @@ public interface MainMenu {
 
     void search() throws FileNotFoundException;
 
-    public void searchAllInCat();
 
     public void displayMyWatced();
 

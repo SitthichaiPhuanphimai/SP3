@@ -49,7 +49,7 @@ public class Serie extends Media {
                 "Run year: " + runYear + '\n' +
                 "Genre: " + genre + '\n' +
                 "Rating: " + rating + '\n'+
-                "Episode: "+ ep;
+                "Episode: "+ ep+'\n';
 
     }
 }

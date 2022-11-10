@@ -36,10 +36,7 @@ public class User implements MainMenu, MediaFunctions{
 
     }
 
-    @Override
-    public void searchAllInCat() {
 
-    }
 
     @Override
     public void displayMyWatced() {
@@ -67,6 +64,7 @@ public class User implements MainMenu, MediaFunctions{
         System.out.println(media + "is now playing");
         myWatched.add(media);
 
+
     }
 
     @Override
@@ -88,7 +86,7 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void saveSeries(Media series) {
 
-        series = FileIO.setupSeries().get(TextUI.getMovieNr());
+        series = FileIO.setupSeries().get(TextUI.getMediaNr());
         mySaved.add(series);
         System.out.println(series + " has been added to your saved list");
 
