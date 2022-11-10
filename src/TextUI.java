@@ -59,7 +59,7 @@ public class TextUI{
                     break;
                 case 2:
                     currentUser.saveMovie(media);
-                    System.out.println("media has been saved to your list");
+                    FileIO.createSavedMedias(currentUser.getUserName(),media);
                     break;
                 case 3:
                     displayMainMenu(currentUser);

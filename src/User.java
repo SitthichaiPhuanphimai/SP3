@@ -79,14 +79,16 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void saveMovie(Media movie) {
 
+//        movie = FileIO.setupMovies().get(TextUI.getMovieNr());
         mySaved.add(movie);
-        System.out.println(movie + "has been added to your saved list");
+        System.out.println(movie.getName() + " has been added to your saved list");
 
     }
 
     @Override
     public void saveSeries(Media series) {
 
+        series = FileIO.setupSeries().get(TextUI.getMovieNr());
         mySaved.add(series);
         System.out.println(series + " has been added to your saved list");
 

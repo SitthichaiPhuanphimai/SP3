@@ -1,3 +1,6 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.io.*;
 
@@ -23,31 +26,17 @@ public class FileIO {
             throw new RuntimeException(e);
         }
     }
-   /* public static void createFile(String name) {
-        try {
-            File usrFile = new File("savedList_" + name+ ".txt");
-            if (usrFile.createNewFile()) {
-                System.out.println("File created: " + usrFile.getName());
-            } else {
-                System.out.println("File already exists.");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }*/
 
-    public static void createSaved(String name) {
+
+    public static void createSavedMedias(String name,Media media) {
         try {
-            FileWriter writer = new FileWriter("src/Data/savedFile"+name+".txt", true);
-            writer.write("Media name");
+            FileWriter writer = new FileWriter("src/Data/savedFilm" + name + ".txt", true);
+            writer.write(media.getName()+'\n');
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 
 
 
