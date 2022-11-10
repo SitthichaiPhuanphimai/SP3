@@ -6,7 +6,6 @@ public class RunProgram {
     ArrayList<Movie> movies;
 
 
-
     User currentUser; //brugeren som er den nuværende bruger af programmet
 
 

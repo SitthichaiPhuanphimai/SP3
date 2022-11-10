@@ -53,7 +53,7 @@ public class TextUI{
             switch (userInput){
 
                 case 1:
-                    System.out.println(media + " is now playing");
+                    System.out.println(media.getName() + " is now playing");
                     promptStop(media,currentUser);
                     break;
                 case 2:
@@ -64,24 +64,8 @@ public class TextUI{
                     displayMainMenu(currentUser);
                     break;
 
-
-            }
-          /*  if (userInput == 1) {
-                System.out.println(media + " is now playing");
-                promptStop(media,currentUser);
-
             }
 
-            if (userInput == 2) {
-
-                currentUser.saveMovie(media);
-                System.out.println("media has been saved to your list");
-            }
-
-            if (userInput == 3) ;
-            {
-                displayMainMenu(currentUser);
-            }*/
         }
 
 
@@ -103,7 +87,6 @@ public class TextUI{
 
                 case 1:
                     FileIO.searchMoviesList(FileIO.setupMovies());
-                    System.out.println("Please remember the movie nr.");
                     promptEnterKey();
                     userSelection(currentUser);
                     break;
@@ -125,33 +108,9 @@ public class TextUI{
 
 
             }
-        /*    if(userInput == 1){
 
-               FileIO.searchMoviesList(FileIO.setupMovies());
-                System.out.println("Please remember the movie nr.");
-                promptEnterKey();
-                userSelection(currentUser);
-            }
 
-            if(userInput == 2){
 
-                //search for series. Make the same function was for searching movies but just for sereis
-            }
-
-            if(userInput == 3){
-                currentUser.displayMyWatced();
-            }
-
-            if (userInput == 4){
-                currentUser.displayMySaved();
-            }
-
-            if (userInput == 5){
-                System.out.println("Logging out");
-                System.out.println("Goodbye");
-                System.exit(0);
-
-            }*/
 
         }
 
@@ -165,28 +124,22 @@ public class TextUI{
 
             int userInput = scan.nextInt();
 
-            if (userInput == 1) {
-                FileIO.searchMoviesList(FileIO.setupMovies());
-                System.out.println("Please remember the movie nr.");
-                promptEnterKey();
-                userSelection(currentUser);
-            }
+            switch (userInput){
+                case 1:
+                    FileIO.searchMoviesList(FileIO.setupMovies());
+                    promptEnterKey();
+                    userSelection(currentUser);
+                    break;
+                case 2:
+                    Movie media = movies.get(getMovieNr());
+                    System.out.println("You have selected"+'\n'+ media);
 
+                    mediaFunctions(media,currentUser);
+                    break;
+                case 3:
+                    displayMainMenu(currentUser);
+                    break;
 
-
-
-            if (userInput == 2) {
-
-                Movie media = movies.get(getMovieNr());
-                System.out.println("You have selected" + media);
-
-                mediaFunctions(media,currentUser);
-
-            }
-
-            if (userInput == 3) {
-
-                displayMainMenu(currentUser);
             }
 
 

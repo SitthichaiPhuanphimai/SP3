@@ -12,7 +12,6 @@ public class CreateUser {
 
         FileIO.writeUser(newUserName, newPassword);
 
-
     }
 
 

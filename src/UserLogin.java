@@ -36,21 +36,21 @@ public class UserLogin {
     public static void checkUser(String userName, String password) throws FileNotFoundException {
         Scanner scan = new Scanner(new File("src/Data/users.txt"));
 
-        String user = scan.next();
+            String user = scan.next();
 
-        String pass = scan.next();
+            String pass = scan.next();
 
 
-        if (userName.equals(user) && password.equals(pass)) {
-            System.out.print("Login successful");
+            if (userName.equals(user) && password.equals(pass)) {
+                System.out.print("Login successful");
 
-        } else {
-            System.out.println("user name & password not found");
-            System.out.println("Please try again");
-            UserLogin.login();
+            } else {
+                System.out.println("user name & password not found");
+                System.out.println("Please try again");
+                UserLogin.login();
+            }
+
         }
-
-    }
 
 }
 

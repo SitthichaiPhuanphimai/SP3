@@ -8,8 +8,9 @@ public abstract class Media
     private ArrayList<String> genre;
 
 
-
-
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {
