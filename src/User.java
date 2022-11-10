@@ -9,14 +9,14 @@ public class User implements MainMenu, MediaFunctions{
 
     private ArrayList<Media> myWatched;
 
-    private ArrayList<Media> mySaved;
+    private ArrayList<Media> myList;
 
     public User(String userName, String password,ArrayList<Media>myWatched, ArrayList<Media>mySaved) {
 
         this.userName = userName;
         this.password = password;
         this.myWatched = myWatched;
-        this.mySaved = mySaved;
+        this.myList = mySaved;
 
     }
 
@@ -51,9 +51,9 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void displayMySaved() {
 
-        for (int i = 0; i < mySaved.size(); i++)
+        for (int i = 0; i < myList.size(); i++)
         {
-            System.out.println(mySaved.get(i));
+            System.out.println(myList.get(i));
         }
     }
 
@@ -78,7 +78,7 @@ public class User implements MainMenu, MediaFunctions{
     public void saveMovie(Media movie) {
 
 //        movie = FileIO.setupMovies().get(TextUI.getMovieNr());
-        mySaved.add(movie);
+        myList.add(movie);
         System.out.println(movie.getName() + " has been added to your saved list");
 
     }
@@ -87,7 +87,7 @@ public class User implements MainMenu, MediaFunctions{
     public void saveSeries(Media series) {
 
         series = FileIO.setupSeries().get(TextUI.getMediaNr());
-        mySaved.add(series);
+        myList.add(series);
         System.out.println(series + " has been added to your saved list");
 
     }
@@ -95,7 +95,7 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void deleteFromSaved(Media media) {
 
-        mySaved.remove(media);
+        myList.remove(media);
         System.out.println(media+ "has been removed from your saved list");
 
     }
@@ -106,6 +106,6 @@ public class User implements MainMenu, MediaFunctions{
         return "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", myWatched=" + myWatched +
-                ", mySaved=" + mySaved;
+                ", mySaved=" + myList;
     }
 }

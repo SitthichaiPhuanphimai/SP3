@@ -200,6 +200,18 @@ public class FileIO {
         return result;
     }
 
+    public static ArrayList<String> setupMyList(String name)
+    {
+        ArrayList<String>mediaData = readData(new File("src/Data/savedMedia_" + name + ".txt"));
+        ArrayList<String>myList = new ArrayList<>();
+
+        for (String s:mediaData) {
+
+            myList.add(s);
+        }
+
+        return mediaData;
+    }
 
 
 }
