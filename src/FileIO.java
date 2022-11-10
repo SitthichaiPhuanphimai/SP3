@@ -25,8 +25,7 @@ public class FileIO {
     }
     public static void createFile(String name) {
         try {
-            File usrFile = new File("watchedList_" + name+ ".txt");
-            File usrFile1 = new File("savedLIst" + name+ ".txt");
+            File usrFile = new File("savedList_" + name+ ".txt");
             if (usrFile.createNewFile()) {
                 System.out.println("File created: " + usrFile.getName());
             } else {
