@@ -44,4 +44,7 @@ public class Movie extends Media
                 ", genre=" + genre +
                 ", rating=" + rating;
     }
+
+
 }
+

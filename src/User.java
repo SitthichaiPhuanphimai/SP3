@@ -44,8 +44,9 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void displayMyWatced() {
 
-        for (Media m:myWatched) {
-            System.out.println(m);
+        for (int i = 0; i < myWatched.size();i++)
+        {
+            System.out.println(myWatched.get(i));
         }
 
     }
@@ -53,8 +54,9 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void displayMySaved() {
 
-        for (Media m:mySaved) {
-            System.out.println(m);
+        for (int i = 0; i < mySaved.size(); i++)
+        {
+            System.out.println(mySaved.get(i));
         }
     }
 
@@ -63,6 +65,7 @@ public class User implements MainMenu, MediaFunctions{
 
 
         System.out.println(media + "is now playing");
+        myWatched.add(media);
 
     }
 
@@ -96,6 +99,7 @@ public class User implements MainMenu, MediaFunctions{
         System.out.println(media+ "has been removed from your saved list");
 
     }
+
 
     @Override
     public String toString() {

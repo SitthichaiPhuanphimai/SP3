@@ -109,7 +109,7 @@ public class FileIO {
 
     public static ArrayList<Movie> searchMoviesList(ArrayList<Movie> movieList){
 
-        System.out.println("Enter your a movie title: ");
+        System.out.println("Enter your a movie title or press enter to display all movies: ");
         Scanner scan = new Scanner(System.in);
         String searchStr = scan.nextLine();
         ArrayList<Movie> result = new ArrayList<>();

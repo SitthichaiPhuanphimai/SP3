@@ -4,7 +4,10 @@ import java.util.ArrayList;
 public class RunProgram {
     ArrayList<User> users; // laver en ny arraylist der kan indeholde alle users
     ArrayList<Movie> movies;
-    User currentuser; //brugeren som er den nuværende bruger af programmet
+
+
+
+    User currentUser; //brugeren som er den nuværende bruger af programmet
 
 
 
@@ -12,12 +15,12 @@ public class RunProgram {
 
         this.users = FileIO.setupUsers();
         this.movies = FileIO.setupMovies();
-        currentuser = users.get(0);
+        currentUser = users.get(0);
 
 
         TextUI.displayLoginScreen();
 
-        TextUI.displayMainMenu();
+        TextUI.displayMainMenu(currentUser);
 
 
 

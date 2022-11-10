@@ -39,33 +39,53 @@ public class TextUI{
 
         }
 
-        public static void mediaFunctions() {
+        public static void mediaFunctions(Media media,User currentUser) throws FileNotFoundException {
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("1. Play ");
-            System.out.println("2. Stop ");
+            System.out.println("2. Save movie ");
             System.out.println("3. Return Home Page ");
             System.out.println("****************");
 
-            if (scan.nextInt() == 1)
-            {
-                // play(Media media);
+            int userInput = scan.nextInt();
+
+
+            switch (userInput){
+
+                case 1:
+                    System.out.println(media + " is now playing");
+                    promptStop(media,currentUser);
+                    break;
+                case 2:
+                    currentUser.saveMovie(media);
+                    System.out.println("media has been saved to your list");
+                    break;
+                case 3:
+                    displayMainMenu(currentUser);
+                    break;
+
+
+            }
+          /*  if (userInput == 1) {
+                System.out.println(media + " is now playing");
+                promptStop(media,currentUser);
+
             }
 
-            if(scan.nextInt() == 2)
-            {
-                //stop(Media media);
+            if (userInput == 2) {
+
+                currentUser.saveMovie(media);
+                System.out.println("media has been saved to your list");
             }
 
-            if (scan.nextInt() == 3) ;
+            if (userInput == 3) ;
             {
-                //displayMainMenu();
-            }
-
+                displayMainMenu(currentUser);
+            }*/
         }
 
 
-        public static void displayMainMenu() throws FileNotFoundException {
+        public static void displayMainMenu(User currentUser) throws FileNotFoundException {
             Scanner scan2 = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("Welcome to DreamStream !");
@@ -73,24 +93,69 @@ public class TextUI{
             System.out.println("1. Search for a movie. ");
             System.out.println("2. Search for a Series. ");
             System.out.println("3. Display your watched movies. ");
-            System.out.println("4. Display your " + "watch later " + "movies ");
+            System.out.println("4. Display your saved movie ");
             System.out.println("5. Exit. "); // should we run a add all movies wa
             System.out.println("****************");
 
-            int userChoice = scan2.nextInt();
+            int userInput = scan2.nextInt();
+
+            switch (userInput){
+
+                case 1:
+                    FileIO.searchMoviesList(FileIO.setupMovies());
+                    System.out.println("Please remember the movie nr.");
+                    promptEnterKey();
+                    userSelection(currentUser);
+                    break;
+
+                case 2:
+                    //search for series. Make the same function was for searching movies but just for sereis
+                    break;
+                case 3:
+                    currentUser.displayMyWatced();
+                    break;
+                case 4:
+                    currentUser.displayMySaved();
+                    break;
+                case 5:
+                    System.out.println("Logging out");
+                    System.out.println("Goodbye");
+                    System.exit(0);
+                    break;
 
 
-            if(userChoice == 1){
+            }
+        /*    if(userInput == 1){
 
                FileIO.searchMoviesList(FileIO.setupMovies());
                 System.out.println("Please remember the movie nr.");
                 promptEnterKey();
-                userSelection();
+                userSelection(currentUser);
             }
+
+            if(userInput == 2){
+
+                //search for series. Make the same function was for searching movies but just for sereis
+            }
+
+            if(userInput == 3){
+                currentUser.displayMyWatced();
+            }
+
+            if (userInput == 4){
+                currentUser.displayMySaved();
+            }
+
+            if (userInput == 5){
+                System.out.println("Logging out");
+                System.out.println("Goodbye");
+                System.exit(0);
+
+            }*/
 
         }
 
-        public static void userSelection() throws FileNotFoundException {
+        public static void userSelection(User currentUser) throws FileNotFoundException {
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("What would you like to do: ");
@@ -104,7 +169,7 @@ public class TextUI{
                 FileIO.searchMoviesList(FileIO.setupMovies());
                 System.out.println("Please remember the movie nr.");
                 promptEnterKey();
-                userSelection();
+                userSelection(currentUser);
             }
 
 
@@ -112,15 +177,16 @@ public class TextUI{
 
             if (userInput == 2) {
 
-                System.out.println("you have selected:"+FileIO.setupMovies().get(getMovieNr() ).getName());
+                Movie media = movies.get(getMovieNr());
+                System.out.println("You have selected" + media);
 
-                mediaFunctions();
+                mediaFunctions(media,currentUser);
 
             }
 
             if (userInput == 3) {
 
-                displayMainMenu();
+                displayMainMenu(currentUser);
             }
 
 
@@ -130,6 +196,16 @@ public class TextUI{
         System.out.println("Press enter to continue");
         try {
             System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void promptStop(Media media,User currentUser){
+        System.out.println("Press enter to stop media");
+        try {
+            System.in.read();
+            mediaFunctions(media,currentUser);
         } catch (IOException e) {
             e.printStackTrace();
         }
