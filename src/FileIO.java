@@ -23,7 +23,7 @@ public class FileIO {
             throw new RuntimeException(e);
         }
     }
-    public static void createFile(String name) {
+   /* public static void createFile(String name) {
         try {
             File usrFile = new File("savedList_" + name+ ".txt");
             if (usrFile.createNewFile()) {
@@ -35,6 +35,17 @@ public class FileIO {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }*/
+
+    public static void createSaved(String name) {
+        try {
+            FileWriter writer = new FileWriter("src/Data/savedFile"+name+".txt", true);
+            writer.write("Media name");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
