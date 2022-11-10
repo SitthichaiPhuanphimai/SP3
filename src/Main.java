@@ -9,6 +9,7 @@ public class Main
 
         RunProgram program = new RunProgram();
 
+        program.setup();
         program.run();
 
     }

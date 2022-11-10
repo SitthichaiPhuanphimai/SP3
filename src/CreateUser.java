@@ -11,7 +11,7 @@ public class CreateUser {
         String newPassword = getNewPassword();
 
         FileIO.writeUser(newUserName, newPassword);
-
+        FileIO.createFile(newUserName);
     }
 
 

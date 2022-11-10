@@ -9,6 +9,7 @@ import static java.awt.Event.ENTER;
 public class TextUI{
 
    static ArrayList<Movie> movies = FileIO.setupMovies();
+   static ArrayList<Serie> series = FileIO.setupSeries();
 
         public static void displayLoginScreen()throws FileNotFoundException{
 
@@ -43,7 +44,7 @@ public class TextUI{
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("1. Play ");
-            System.out.println("2. Save movie ");
+            System.out.println("2. Save media ");
             System.out.println("3. Return Home Page ");
             System.out.println("****************");
 
@@ -88,11 +89,13 @@ public class TextUI{
                 case 1:
                     FileIO.searchMoviesList(FileIO.setupMovies());
                     promptEnterKey();
-                    userSelection(currentUser);
+                    movieSelection(currentUser);
                     break;
 
                 case 2:
-                    //search for series. Make the same function was for searching movies but just for sereis
+                    FileIO.searchSeriesList(FileIO.setupSeries());
+                    promptEnterKey();
+                    seriesSelection(currentUser);
                     break;
                 case 3:
                     currentUser.displayMyWatced();
@@ -114,33 +117,62 @@ public class TextUI{
 
         }
 
-        public static void userSelection(User currentUser) throws FileNotFoundException {
+        public static void movieSelection(User currentUser) throws FileNotFoundException {
             Scanner scan = new Scanner(System.in);
             System.out.println("****************");
             System.out.println("What would you like to do: ");
             System.out.println("1.Search again");
-            System.out.println("2.Select movie");
+            System.out.println("2.Select media");
             System.out.println("3.return to Main menu");
 
             int userInput = scan.nextInt();
 
-            switch (userInput){
+            switch (userInput) {
                 case 1:
                     FileIO.searchMoviesList(FileIO.setupMovies());
                     promptEnterKey();
-                    userSelection(currentUser);
+                    movieSelection(currentUser);
                     break;
                 case 2:
-                    Movie media = movies.get(getMovieNr());
-                    System.out.println("You have selected"+'\n'+ media);
+                    Media media = movies.get(getMovieNr());
+                    System.out.println("You have selected" + '\n' + media);
 
-                    mediaFunctions(media,currentUser);
+                    mediaFunctions(media, currentUser);
                     break;
                 case 3:
                     displayMainMenu(currentUser);
                     break;
 
             }
+
+        }
+            public static void seriesSelection(User currentUser) throws FileNotFoundException {
+                Scanner scan = new Scanner(System.in);
+                System.out.println("****************");
+                System.out.println("What would you like to do: ");
+                System.out.println("1.Search again");
+                System.out.println("2.Select media");
+                System.out.println("3.return to Main menu");
+
+                int userInput = scan.nextInt();
+
+                switch (userInput){
+                    case 1:
+                        FileIO.searchMoviesList(FileIO.setupMovies());
+                        promptEnterKey();
+                        movieSelection(currentUser);
+                        break;
+                    case 2:
+                        Media media = series.get(getMovieNr());
+                        System.out.println("You have selected"+'\n'+ media);
+
+                        mediaFunctions(media,currentUser);
+                        break;
+                    case 3:
+                        displayMainMenu(currentUser);
+                        break;
+
+                }
 
 
         }

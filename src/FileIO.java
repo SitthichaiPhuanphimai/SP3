@@ -23,9 +23,10 @@ public class FileIO {
             throw new RuntimeException(e);
         }
     }
-    public void createFile() {
+    public static void createFile(String name) {
         try {
-            File usrFile = new File("users.txt");
+            File usrFile = new File("watchedList_" + name+ ".txt");
+            File usrFile1 = new File("savedLIst" + name+ ".txt");
             if (usrFile.createNewFile()) {
                 System.out.println("File created: " + usrFile.getName());
             } else {
@@ -36,6 +37,8 @@ public class FileIO {
             e.printStackTrace();
         }
     }
+
+
 
 
 
@@ -86,6 +89,46 @@ public class FileIO {
         return movieList;
     }
 
+    public static ArrayList<Serie> setupSeries()
+    {
+        ArrayList<Serie> seriesList = new ArrayList<>();
+
+        File file = new File("src/Data/series.txt");
+
+        try
+        {
+            Scanner readSeries = new Scanner(file);
+
+            while (readSeries.hasNextLine())
+            {
+                String line = readSeries.nextLine();
+                String[] values = line.split(";");
+
+                String name = values[0].trim();
+
+                ArrayList<String> runYear = new ArrayList<>();
+                String[] yearsOnAir = values[1].trim().split("-");
+                runYear.addAll(Arrays.asList(yearsOnAir));
+
+                ArrayList<String> genre = new ArrayList<>();
+                String[] genreArr = values[2].trim().split(",");
+                genre.addAll(Arrays.asList(genreArr));
+
+                float rating = Float.parseFloat(values[3].trim().replace(",", "."));
+
+                ArrayList<String> ep = new ArrayList<>();
+                String[] eps = values[4].trim().split(",");
+                ep.addAll(Arrays.asList(eps));
+
+                seriesList.add(new Serie(name, runYear, genre, rating, ep));
+            }
+        } catch (IOException e)
+        {
+            System.out.println("File not found");
+        }
+        return seriesList;
+    }
+
     public static ArrayList<User> setupUsers()
     {
         ArrayList<String>userdata = readData(new File("src/Data/users.txt"));
@@ -122,12 +165,31 @@ public class FileIO {
 
                 }
 
-
             }
 
         return result;
     }
 
+    public static ArrayList<Serie> searchSeriesList(ArrayList<Serie> serieList)
+    {
+        System.out.println("Enter a series title or press enter to display all series: ");
+        Scanner scan = new Scanner(System.in);
+        String searchStr = scan.nextLine();
+        ArrayList<Serie> result = new ArrayList<>();
+
+        for (Serie s : serieList)
+        {
+            if(s.getName().toLowerCase().contains(searchStr.toLowerCase()))
+            {
+                result.add(s);
+                System.out.println(" Movie nr. " + serieList.indexOf(s)+ ": " + (s) ); // +1 ved display til user og -1 til når man skal adde index til user savedMovies
+
+            }
+
+        }
+
+        return result;
+    }
 
 
 
