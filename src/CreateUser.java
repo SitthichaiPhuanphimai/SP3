@@ -7,6 +7,7 @@ public class CreateUser {
 
     static void createUser()
     {
+        System.out.println("**USER CREATION**");
         String newUserName = getNewUserName();
         String newPassword = getNewPassword();
 

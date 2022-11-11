@@ -9,12 +9,12 @@ public class RunProgram {
     User currentUser; //brugeren som er den nuværende bruger af programmet
 
 
-    public void setup() {
+    public void setup() throws FileNotFoundException {
+
 
         this.users = FileIO.setupUsers();
         this.movies = FileIO.setupMovies();
         this.series = FileIO.setupSeries();
-
 
 
     }
@@ -24,13 +24,12 @@ public class RunProgram {
 
          TextUI.displayLoginScreen();
 
-         currentUser = users.get(0);
-
-
-         TextUI.displayMainMenu(currentUser);
+        TextUI.displayMainMenu(currentUser);
 
 
     }
+
+
 
 
 }

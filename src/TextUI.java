@@ -11,7 +11,7 @@ public class TextUI{
    static ArrayList<Movie> movies = FileIO.setupMovies();
    static ArrayList<Serie> series = FileIO.setupSeries();
 
-        public static void displayLoginScreen()throws FileNotFoundException{
+        public static User displayLoginScreen()throws FileNotFoundException{
 
             Scanner scan = new Scanner(System.in);
 
@@ -21,11 +21,12 @@ public class TextUI{
             System.out.println("- Create user");
 
             String userInput = scan.nextLine();
-
+            User user = null;
 
             if (userInput.equalsIgnoreCase("login")) {
 
-                 UserLogin.login();
+                 user = UserLogin.login();
+
             }
 
             if (userInput.equalsIgnoreCase("create user"))
@@ -34,8 +35,8 @@ public class TextUI{
                CreateUser.createUser();
 
             }
-            
 
+            return user;
 
 
         }
@@ -59,7 +60,7 @@ public class TextUI{
                     promptStop(media,currentUser);
                     break;
                 case 2:
-                    currentUser.saveMovie(media);
+                    System.out.println(media.getName()+" has been saved to your list");
                     FileIO.createSavedMedia(currentUser.getUserName(),media);
                     displayMainMenu(currentUser);
                     break;
