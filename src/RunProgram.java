@@ -9,49 +9,28 @@ public class RunProgram {
     User currentUser; //brugeren som er den nuværende bruger af programmet
 
 
-    public void setup(){
+    public void setup() {
 
         this.users = FileIO.setupUsers();
         this.movies = FileIO.setupMovies();
         this.series = FileIO.setupSeries();
-        currentUser = users.get(0);
-
-
-    }
-
-    public  void run() throws FileNotFoundException {
-
-
-
-
-        TextUI.displayLoginScreen();
-
-        TextUI.displayMainMenu(currentUser);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
     }
 
+    public void run() throws FileNotFoundException {
 
+
+         TextUI.displayLoginScreen();
+
+         currentUser = users.get(0);
+
+
+         TextUI.displayMainMenu(currentUser);
+
+
+    }
 
 
 }
