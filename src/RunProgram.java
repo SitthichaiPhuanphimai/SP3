@@ -6,8 +6,6 @@ public class RunProgram {
     ArrayList<Movie> movies;
     ArrayList<Serie> series;
 
-    ArrayList<String>myList;
-
     User currentUser; //brugeren som er den nuværende bruger af programmet
 
 
@@ -17,11 +15,12 @@ public class RunProgram {
         this.movies = FileIO.setupMovies();
         this.series = FileIO.setupSeries();
         currentUser = users.get(0);
-        this.myList = FileIO.setupMyList(currentUser.getUserName());
+
 
     }
 
     public  void run() throws FileNotFoundException {
+
 
 
 

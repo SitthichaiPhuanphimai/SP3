@@ -11,7 +11,7 @@ public class User implements MainMenu, MediaFunctions{
 
     private ArrayList<Media> myList;
 
-    public User(String userName, String password,ArrayList<Media>myWatched, ArrayList<Media>mySaved) {
+    public User(String userName, String password,ArrayList<Media> myWatched, ArrayList<Media> mySaved) {
 
         this.userName = userName;
         this.password = password;
@@ -41,20 +41,14 @@ public class User implements MainMenu, MediaFunctions{
     @Override
     public void displayMyWatced() {
 
-        for (int i = 0; i < myWatched.size();i++)
-        {
-            System.out.println(myWatched.get(i));
-        }
+        System.out.println(FileIO.readMyWatched(this.getUserName()));
 
     }
 
     @Override
     public void displayMySaved() {
 
-        for (int i = 0; i < myList.size(); i++)
-        {
-            System.out.println(myList.get(i));
-        }
+        System.out.println(FileIO.readMyList(this.getUserName()));
     }
 
     @Override

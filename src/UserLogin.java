@@ -13,25 +13,10 @@ public class UserLogin {
     static void login() throws FileNotFoundException {
 
 
-       /* String userName = getUserName();
-        String password = getPassword();*/
-
          checkUser();
     }
 
-    private static String getUserName() {
 
-        System.out.println("Enter your user Name for your user: ");
-
-        return scan.nextLine();
-    }
-
-    private static String getPassword() {
-
-        System.out.println("Enter your password for your user: ");
-
-        return scan.nextLine();
-    }
 
     public static void checkUser() throws FileNotFoundException {
         Scanner scan = new Scanner(new File("src/Data/users.txt"));

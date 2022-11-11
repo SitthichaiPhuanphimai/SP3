@@ -5,7 +5,9 @@ import java.util.*;
 import java.io.*;
 
 public class FileIO {
+
     Scanner scan = new Scanner(System.in);
+
 
     public static ArrayList<String> readData(File file)
     {
@@ -200,17 +202,44 @@ public class FileIO {
         return result;
     }
 
-    public static ArrayList<String> setupMyList(String name)
+    public static ArrayList<String> readMyList(String name)
     {
-        ArrayList<String>mediaData = readData(new File("src/Data/savedMedia_" + name + ".txt"));
-        ArrayList<String>myList = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src/data/savedMedia_"+name+".txt"));
+            ArrayList<String> data = new ArrayList<>();
 
-        for (String s:mediaData) {
+            String currentLine = reader.readLine();
+            while (currentLine != null) {
+                data.add(currentLine);
+                currentLine =reader.readLine();
+            }
+            return data;
 
-            myList.add(s);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
 
-        return mediaData;
+    public static ArrayList<String> readMyWatched(String name)
+    {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src/data/WatchedMedia_"+name+".txt"));
+            ArrayList<String> data = new ArrayList<>();
+
+            String currentLine = reader.readLine();
+            while (currentLine != null) {
+                data.add(currentLine);
+                currentLine =reader.readLine();
+            }
+            return data;
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

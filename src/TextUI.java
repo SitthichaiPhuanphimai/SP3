@@ -101,9 +101,11 @@ public class TextUI{
                     break;
                 case 3:
                     currentUser.displayMyWatced();
+                    movieSelection(currentUser);
                     break;
                 case 4:
                     currentUser.displayMySaved();
+                    movieSelection(currentUser);
                     break;
                 case 5:
                     System.out.println("Logging out");
