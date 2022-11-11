@@ -5,13 +5,15 @@ public class CreateUser {
     static Scanner scan = new Scanner(System.in);
 
 
-    static void createUser()
+    static String createUser()
     {
         System.out.println("**USER CREATION**");
         String newUserName = getNewUserName();
         String newPassword = getNewPassword();
 
         FileIO.writeUser(newUserName, newPassword);
+
+        return newUserName;
 
 
     }

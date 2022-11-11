@@ -9,10 +9,10 @@ public class User implements MainMenu, MediaFunctions{
 
 
 
-    public User(String userName, String password) {
+    public User(String userName) {
 
         this.userName = userName;
-        this.password = password;
+
 
 
 
@@ -20,6 +20,10 @@ public class User implements MainMenu, MediaFunctions{
 
     public String getUserName() {
         return userName;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override
@@ -58,8 +62,6 @@ public class User implements MainMenu, MediaFunctions{
 
 
     }
-
-
 
 
 

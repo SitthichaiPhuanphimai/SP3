@@ -17,8 +17,10 @@ public class FileIO {
 
             String currentLine = reader.readLine();
             while (currentLine != null) {
+
                 data.add(currentLine);
                 currentLine =reader.readLine();
+
             }
             return data;
 
@@ -140,7 +142,7 @@ public class FileIO {
         return seriesList;
     }
 
-    public static ArrayList<User> setupUsers() throws FileNotFoundException {
+ /*   public static ArrayList<User> setupUsers() throws FileNotFoundException {
         try {
             ArrayList<String> userdata = readData(new File("src/Data/users.txt"));
             ArrayList<User> userList = new ArrayList<>();
@@ -148,20 +150,22 @@ public class FileIO {
             for (String s : userdata) {
                 String[] userLogin = s.split(" ");
 
-                String userName = userLogin[0];
-                String userPassword = userLogin[1];
+
+                    String userName = userLogin[0];
+                    String userPassword = userLogin[1];
 
 
-                userList.add(new User(userName, userPassword));
-            }
+                    userList.add(new User(userName, userPassword);
+                }
 
             return userList;
-        } catch (ArrayIndexOutOfBoundsException outOfBoundsException) {
+
+        } catch (ArrayIndexOutOfBoundsException o) {
             System.out.println("No users found");
 
         }
         return null;
-    }
+    }*/
 
 
 

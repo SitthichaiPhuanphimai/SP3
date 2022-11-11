@@ -12,7 +12,7 @@ public class RunProgram {
     public void setup() throws FileNotFoundException {
 
 
-        this.users = FileIO.setupUsers();
+//        this.users = FileIO.setupUsers();
         this.movies = FileIO.setupMovies();
         this.series = FileIO.setupSeries();
 
@@ -22,9 +22,13 @@ public class RunProgram {
     public void run() throws FileNotFoundException {
 
 
-         TextUI.displayLoginScreen();
 
-        TextUI.displayMainMenu(currentUser);
+        String name = TextUI.displayLoginScreen();
+
+        currentUser = new User(name);
+
+
+       TextUI.displayMainMenu(currentUser);
 
 
     }

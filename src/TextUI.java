@@ -11,7 +11,7 @@ public class TextUI{
    static ArrayList<Movie> movies = FileIO.setupMovies();
    static ArrayList<Serie> series = FileIO.setupSeries();
 
-        public static User displayLoginScreen()throws FileNotFoundException{
+        public static String displayLoginScreen()throws FileNotFoundException{
 
             Scanner scan = new Scanner(System.in);
 
@@ -21,7 +21,7 @@ public class TextUI{
             System.out.println("- Create user");
 
             String userInput = scan.nextLine();
-            User user = null;
+            String user = null;
 
             if (userInput.equalsIgnoreCase("login")) {
 
@@ -32,11 +32,11 @@ public class TextUI{
             if (userInput.equalsIgnoreCase("create user"))
             {
 
-               CreateUser.createUser();
+              user = CreateUser.createUser();
 
             }
 
-            return user;
+            return user ;
 
 
         }
@@ -57,6 +57,7 @@ public class TextUI{
                 case 1:
                     currentUser.play(media);
                     FileIO.createWatchedMedia(currentUser.getUserName(),media);
+
                     promptStop(media,currentUser);
                     break;
                 case 2:
@@ -76,7 +77,7 @@ public class TextUI{
         public static void displayMainMenu(User currentUser) throws FileNotFoundException {
             Scanner scan2 = new Scanner(System.in);
             System.out.println("****************");
-            System.out.println("Welcome to DreamStream !");
+            System.out.println("Welcome to DreamStream  !");
             System.out.println("What would you like to do today?: ");
             System.out.println("1. Search for a movie. ");
             System.out.println("2. Search for a Series. ");

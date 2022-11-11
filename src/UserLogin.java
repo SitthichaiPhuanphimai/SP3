@@ -11,12 +11,12 @@ public class UserLogin {
     static Scanner scan = new Scanner(System.in);
 
 
-    static User login() throws FileNotFoundException {
+     static String login() throws FileNotFoundException {
 
 
         Scanner scan = new Scanner(new File("src/Data/users.txt"));
         Scanner keyboard = new Scanner(System.in);
-        ArrayList<User> userList = FileIO.setupUsers();
+//        ArrayList<User> userList = FileIO.setupUsers();
 
         if (!scan.hasNext() ) {
             System.out.println("no users found");
@@ -27,7 +27,7 @@ public class UserLogin {
             System.out.println("Enter your password: ");
             String inpPass = keyboard.nextLine();
 
-            for (User i : userList) {
+
 
 
                 while (scan.hasNext()) {
@@ -37,6 +37,7 @@ public class UserLogin {
                     if (inpUser.equals(line)) {
                         user = inpUser;
                         pass = scan.next();
+
                     }
 
                 }
@@ -44,20 +45,19 @@ public class UserLogin {
 
                 if (inpUser.equals(user) && inpPass.equals(pass)) {
                     System.out.print("Login successful");
-                    return i;
+                    return inpUser;
 
                 } else {
                     System.out.println("user name & password not found");
                     System.out.println("Please try again");
 //
-                    break;
+
                 }
 
 
             }
 
 
-        }
         return null;
     }
 
