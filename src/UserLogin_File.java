@@ -1,26 +1,29 @@
+import org.omg.CORBA.DynAnyPackage.Invalid;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UserLogin {
+public class UserLogin_File {
 
         static String user;
         static String pass;
 
+
+
     static Scanner scan = new Scanner(System.in);
 
 
-     static String login() throws FileNotFoundException {
+      static String login() throws Exception {
 
 
         Scanner scan = new Scanner(new File("src/Data/users.txt"));
         Scanner keyboard = new Scanner(System.in);
-//        ArrayList<User> userList = FileIO.setupUsers();
+
 
         if (!scan.hasNext() ) {
             System.out.println("no users found");
-            CreateUser.createUser();
+            CreateUser_File.createUser();
         } else {
             System.out.println("Enter your username: ");
             String inpUser = keyboard.nextLine();
@@ -47,16 +50,19 @@ public class UserLogin {
                     System.out.print("Login successful");
                     return inpUser;
 
-                } else {
-                    System.out.println("user name & password not found");
-                    System.out.println("Please try again");
-//
 
+
+
+
+                } else {
+                    System.out.println("user not found, try again");
+                    login();
+                  
+                
                 }
 
 
             }
-
 
         return null;
     }

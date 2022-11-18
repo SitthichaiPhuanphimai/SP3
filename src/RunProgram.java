@@ -2,24 +2,29 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class RunProgram {
-    ArrayList<User> users; // laver en ny arraylist der kan indeholde alle users
+
     ArrayList<Movie> movies;
     ArrayList<Serie> series;
 
-    User currentUser; //brugeren som er den nuværende bruger af programmet
+    User currentUser;
 
 
     public void setup() throws FileNotFoundException {
 
 
-//        this.users = FileIO.setupUsers();
+        //Vil du gå online eller
+
+        //hvis de vælger at gå online
+        //this.movies = MediaDB.setupMovies();
+
+        //kald den her metode hvis de går offline
         this.movies = FileIO.setupMovies();
         this.series = FileIO.setupSeries();
 
 
     }
 
-    public void run() throws FileNotFoundException {
+    public void run() throws Exception {
 
 
 
@@ -28,7 +33,7 @@ public class RunProgram {
         currentUser = new User(name);
 
 
-       TextUI.displayMainMenu(currentUser);
+        TextUI.displayMainMenu(currentUser);
 
 
     }

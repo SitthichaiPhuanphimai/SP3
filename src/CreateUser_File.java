@@ -1,19 +1,20 @@
 import java.util.Scanner;
 
-public class CreateUser {
+public class CreateUser_File {
 
     static Scanner scan = new Scanner(System.in);
 
 
-    static String createUser()
-    {
+    static void createUser() throws Exception {
         System.out.println("**USER CREATION**");
         String newUserName = getNewUserName();
         String newPassword = getNewPassword();
 
         FileIO.writeUser(newUserName, newPassword);
 
-        return newUserName;
+        System.out.println("user created - Please login");
+        UserLogin_File.login();
+//        return newUserName;
 
 
     }

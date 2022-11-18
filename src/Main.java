@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Main
 {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
 
-        RunProgram program = new RunProgram();
+
+
+       RunProgram program = new RunProgram();
 
         program.setup();
         program.run();

@@ -142,30 +142,6 @@ public class FileIO {
         return seriesList;
     }
 
- /*   public static ArrayList<User> setupUsers() throws FileNotFoundException {
-        try {
-            ArrayList<String> userdata = readData(new File("src/Data/users.txt"));
-            ArrayList<User> userList = new ArrayList<>();
-
-            for (String s : userdata) {
-                String[] userLogin = s.split(" ");
-
-
-                    String userName = userLogin[0];
-                    String userPassword = userLogin[1];
-
-
-                    userList.add(new User(userName, userPassword);
-                }
-
-            return userList;
-
-        } catch (ArrayIndexOutOfBoundsException o) {
-            System.out.println("No users found");
-
-        }
-        return null;
-    }*/
 
 
 

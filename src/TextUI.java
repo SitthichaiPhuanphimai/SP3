@@ -1,17 +1,16 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static java.awt.Event.ENTER;
+
 
 public class TextUI{
 
    static ArrayList<Movie> movies = FileIO.setupMovies();
    static ArrayList<Serie> series = FileIO.setupSeries();
 
-        public static String displayLoginScreen()throws FileNotFoundException{
+        public static String displayLoginScreen() throws Exception {
 
             Scanner scan = new Scanner(System.in);
 
@@ -25,14 +24,15 @@ public class TextUI{
 
             if (userInput.equalsIgnoreCase("login")) {
 
-                 user = UserLogin.login();
+
+                 user = UserLogin_File.login();
 
             }
 
             if (userInput.equalsIgnoreCase("create user"))
             {
 
-              user = CreateUser.createUser();
+               CreateUser_File.createUser();
 
             }
 
